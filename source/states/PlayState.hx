@@ -686,7 +686,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 		playbackRate = value;
-		FlxAnimationController.globalSpeed = value;
+		FlxG.animationTimeScale = value;
 		Conductor.safeZoneOffset = (ClientPrefs.data.safeFrames / 60) * 1000 * value;
 		setOnScripts('playbackRate', playbackRate);
 		return value;
@@ -3011,7 +3011,7 @@ class PlayState extends MusicBeatState
 
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
-		FlxAnimationController.globalSpeed = 1;
+		FlxG.animationTimeScale = 1;
 		FlxG.sound.music.pitch = 1;
 		Note.globalRgbShaders = [];
 		backend.NoteTypesConfig.clearNoteTypesData();
